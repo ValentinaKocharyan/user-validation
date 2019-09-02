@@ -24,19 +24,19 @@ export class User {
       email: 'user4@gmail.com'
     }
   ];
-  public getUsers(users) {
-    const observable = new Observable<Array<UserType>>(function subscribe(subscriber: any) {
+  public getUsers(users: UserType[]): object {
+    const observable = new Observable<UserType[]>(function subscribe(subscriber: any) {
       subscriber.next(users);
       subscriber.complete();
     });
     return observable.subscribe(data => {
-      users = data;
+      this.users = data;
     }, (error) => {
       console.log(error);
     });
   }
-  public deleteUser(users, id: number) {
-    const observable = new Observable<Array<UserType>>(function subscribe(subscriber: any) {
+  public deleteUser(users: UserType[], id: number): object {
+    const observable = new Observable<UserType[]>(function subscribe(subscriber: any) {
       users.splice(users.findIndex(item => item.id === id), 1);
       subscriber.next(users);
       subscriber.complete();
@@ -47,9 +47,9 @@ export class User {
       console.log(error);
     });
   }
-  public editUser(users, id: number, name: string) {
+  public editUser(users: UserType[], id: number, name: string): object {
     const index = this.users.findIndex(item => item.id === id);
-    const observable = new Observable<Array<UserType>>(function subscribe(subscriber: any) {
+    const observable = new Observable<UserType[]>(function subscribe(subscriber: any) {
       users[index].name = name;
       subscriber.next(users);
       subscriber.complete();
