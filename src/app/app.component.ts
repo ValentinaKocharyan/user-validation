@@ -22,4 +22,7 @@ export class AppComponent implements OnInit {
   editUser(users, userId: number, name: string) {
     this.users.editUser(users.users, userId, name);
   }
+  saveUserVerification(users, userId: number, verification: Array<boolean>) {
+    this.users.saveUserVerification(users.users, userId, verification);
+  }
 }

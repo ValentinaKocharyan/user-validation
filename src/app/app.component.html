@@ -2,7 +2,15 @@
   <div *ngFor="let user of users.users">
     <input type="text" value="{{user?.name}}" [(ngModel)]="user.name">
     <span style="padding-left: 20px;">{{user.email}}</span>
+    <div style="display: inline-block;">
+      <div style="display: inline-block" *ngFor="let verification, of users.verifications; let i = index;">
+        <label>{{verification}}
+          <input type="checkbox" [(ngModel)]="user.verification[i]" [checked]="user.verification[i]">
+        </label>
+      </div>
+    </div>
     <button (click)="deleteUser(users, user.id)">Delete</button>
     <button (click)="editUser(users, user.id, user.name)">Edit</button>
+    <button (click)="saveUserVerification(users, user.id, user.verification)">Save</button>
   </div>
 </div>
