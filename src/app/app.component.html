@@ -3,9 +3,9 @@
     <input type="text" value="{{user?.name}}" [(ngModel)]="user.name">
     <span style="padding-left: 20px;">{{user.email}}</span>
     <div style="display: inline-block;">
-      <div style="display: inline-block" *ngFor="let verification, of users.verifications; let i = index;">
-        <label>{{verification}}
-          <input type="checkbox" [(ngModel)]="user.verification[i]" [checked]="user.verification[i]">
+      <div style="display: inline-block" *ngFor="let currentVerification of user.verification | keyvalue">
+        <label>{{currentVerification.key}}
+          <input type="checkbox" [(ngModel)]="user.verification[currentVerification.key]" [checked]="user.verification[currentVerification.key]">
         </label>
       </div>
     </div>
