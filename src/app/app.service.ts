@@ -53,7 +53,7 @@ export class User {
     }
   ];
   public getUsers(users: UserType[]): object {
-    const observable = new Observable<UserType[]>(function subscribe(subscriber: any) {
+    const observable: Observable<UserType[]> = new Observable<UserType[]>( (subscriber: any) => {
       subscriber.next(users);
       subscriber.complete();
     });
@@ -64,7 +64,7 @@ export class User {
     });
   }
   public deleteUser(users: UserType[], id: number): object {
-    const observable = new Observable<UserType[]>(function subscribe(subscriber: any) {
+    const observable: Observable<UserType[]> = new Observable<UserType[]>((subscriber: any) => {
       users.splice(users.findIndex(item => item.id === id), 1);
       subscriber.next(users);
       subscriber.complete();
@@ -76,8 +76,8 @@ export class User {
     });
   }
   public editUser(users: UserType[], id: number, name: string): object {
-    const index = this.users.findIndex(item => item.id === id);
-    const observable = new Observable<UserType[]>(function subscribe(subscriber: any) {
+    const index: number = this.users.findIndex(item => item.id === id);
+    const observable: Observable<UserType[]> = new Observable<UserType[]>((subscriber: any) => {
       users[index].name = name;
       subscriber.next(users);
       subscriber.complete();
@@ -89,8 +89,8 @@ export class User {
     });
   }
   public saveUserVerification(users: UserType[], id: number, verification: object): object {
-    const index = this.users.findIndex(item => item.id === id);
-    const observable = new Observable<UserType[]>(function subscribe(subscriber: any) {
+    const index: number = this.users.findIndex(item => item.id === id);
+    const observable: Observable<UserType[]> = new Observable<UserType[]>((subscriber: any) => {
       users[index].verification = verification;
       subscriber.next(users);
       subscriber.complete();
