@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './app.service';
-import { KeyValuePipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -9,21 +8,36 @@ import { KeyValuePipe } from '@angular/common';
   providers: [User]
 })
 export class AppComponent implements OnInit {
-  title = 'user-verification';
+  public title: string = 'user-verification';
 
   constructor(public users: User) {}
 
   ngOnInit() {
-
+    this.getUsers();
   }
-
-  deleteUser(users, userId: number) {
-    this.users.deleteUser(users.users, userId);
+  getUsers(): void {
+    this.users.getUsers().subscribe( res => {
+      this.users.users = res;
+    }, err => {
+      console.log(err);
+    });
   }
-  editUser(users, userId: number, name: string) {
-    this.users.editUser(users.users, userId, name);
+  deleteUser(id: number) {
+    this.users.deleteUser(id).subscribe( res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
   }
-  saveUserVerification(users, userId: number, verification: object) {
+  editUser(id: number, name: string) {
+    const data: object = {name: name};
+    this.users.editUser(id, data).subscribe( res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
+  }
+  /*saveUserVerification(users, userId: number, verification: object) {
     this.users.saveUserVerification(users.users, userId, verification);
-  }
+  }*/
 }

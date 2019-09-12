@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "New User 1",
+    "email": "user1@gmail.com",
+    "verification": {
+      "SMS": true,
+      "Email": false,
+      "Phone": false,
+      "Credit": true,
+      "Survey": true
+    }
+  },
+  {
+    "id": 2,
+    "name": "New User 2",
+    "email": "user2@gmail.com",
+    "verification": {
+      "SMS": false,
+      "Email": true,
+      "Phone": false,
+      "Credit": true,
+      "Survey": false
+    }
+  },
+  {
+    "id": 3,
+    "name": "New User 3",
+    "email": "user3@gmail.com",
+    "verification": {
+      "SMS": true,
+      "Email": false,
+      "Phone": true,
+      "Credit": false,
+      "Survey": true
+    }
+  },
+  {
+    "id": 4,
+    "name": "New User 4",
+    "email": "user4@gmail.com",
+    "verification": {
+      "SMS": false,
+      "Email": false,
+      "Phone": true,
+      "Credit": true,
+      "Survey": true
+    }
+  }
+]
