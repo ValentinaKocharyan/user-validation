@@ -20,6 +20,9 @@ export class User {
     return this.http.post<UserType[]>(url, data);
   }
 
+
+
+  
   /*public deleteUser(users: UserType[], id: number): object {
     const observable: Observable<UserType[]> = new Observable<UserType[]>((subscriber: any) => {
       users.splice(users.findIndex(item => item.id === id), 1);
